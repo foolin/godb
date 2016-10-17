@@ -21,7 +21,7 @@ type Config struct {
 }
 
 const (
-	DriverMYSql = "mysql"
+	DriverMySQL = "mysql"
 )
 
 // Connect to the database
