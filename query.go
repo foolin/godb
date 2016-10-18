@@ -105,24 +105,24 @@ func (q QueryBuilder) All(dest interface{}) error{
 	return q.db.QueryAll(dest, q.Sql(), q.Args()...)
 }
 
-func (q QueryBuilder) Row(dest interface{}) *sql.Row{
+func (q QueryBuilder) Row() *sql.Row{
 	if q.sqlLimit <= 0{
 		q.sqlLimit = 1
 	}
-	return q.db.QueryRow(dest, q.Sql(), q.Args()...)
+	return q.db.QueryRow(q.Sql(), q.Args()...)
 }
 
-func (q QueryBuilder) Rows(dest interface{}) (*sql.Rows, error){
-	return q.db.Query(dest, q.Sql(), q.Args()...)
+func (q QueryBuilder) Rows() (*sql.Rows, error){
+	return q.db.Query(q.Sql(), q.Args()...)
 }
 
-func (q QueryBuilder) MapRow(dest interface{}) MapRow{
+func (q QueryBuilder) MapRow() (MapRow, error){
 	if q.sqlLimit <= 0{
 		q.sqlLimit = 1
 	}
-	return q.db.QueryMapRow(dest, q.Sql(), q.Args()...)
+	return q.db.QueryMapRow(q.Sql(), q.Args()...)
 }
 
-func (q QueryBuilder) MapRows(dest interface{}) ([]MapRow, error){
-	return q.db.QueryMapRows(dest, q.Sql(), q.Args()...)
+func (q QueryBuilder) MapRows() ([]MapRow, error){
+	return q.db.QueryMapRows(q.Sql(), q.Args()...)
 }

@@ -25,8 +25,10 @@ const (
 )
 
 // Connect to the database
+// Dirver mysql
+// DSN username:password@tcp(127.0.0.1:3306)/test?parseTime=true&charset=utf8&loc=Local
 func Open(d Config) (dbx *Dbx, err error) {
-	var _db sql.DB
+	var _db *sql.DB
 	switch strings.ToLower(d.Driver) {
 	case "mysql":
 		// Connect to MySQL

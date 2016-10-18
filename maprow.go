@@ -4,8 +4,8 @@ import (
 	"strings"
 	"database/sql"
 	"fmt"
-	"xinyi.io/gameshared/utility/utilx"
 	"time"
+	"github.com/foolin/goutils/utilx"
 )
 
 type MapRow map[string]interface{}
