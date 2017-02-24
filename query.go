@@ -137,6 +137,6 @@ func (q QueryBuilder) MapRows() ([]MapRow, error) {
 
 func (q QueryBuilder) Count() (int64, error) {
 	var count int64
-	err := q.Select("select count(0)").One(&count)
+	err := q.Select(" count(0) as num ").One(&count)
 	return count, err
 }
